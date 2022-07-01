@@ -87,11 +87,11 @@ module.exports = (options) => {
 
       if (isOnPageLink && isSplit) {
         label = match[4].replace('|', '');
-        href = options.slugifyOnPageLinks(match[3]);
+        href = `#${options.slugifyOnPageLinks(match[3].replace('#', ''))}`;
         return buildReplacement(href, label);
       } else if (isOnPageLink) {
         label = match[3].replace('#', '');
-        href = options.slugifyOnPageLinks(match[3]);
+        href = `#${options.slugifyOnPageLinks(label)}`;
         return buildReplacement(href, label);
       }
 
